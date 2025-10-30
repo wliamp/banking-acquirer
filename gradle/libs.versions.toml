@@ -1,0 +1,5 @@
+[versions]
+ver = '0.0.1'
+
+[libraries]
+lib = { module = 'org.hamsaqua:banking-acquirer', version.ref = 'ver' }

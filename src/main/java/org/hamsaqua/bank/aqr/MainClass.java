@@ -1,13 +1,11 @@
-package vn.mmo.rpg;
+package org.hamsaqua.bank.aqr;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RpgApplication {
-
+public class MainClass {
 	public static void main(String[] args) {
-		SpringApplication.run(RpgApplication.class, args);
+		SpringApplication.run(MainClass.class, args);
 	}
-
 }
