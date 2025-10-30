@@ -1,5 +1,5 @@
 [versions]
-ver = '0.0.1'
+tag = '0.0.0'
 
 [libraries]
-lib = { module = 'org.hamsaqua:banking-acquirer', version.ref = 'ver' }
+starter = { module = 'org.hamsaqua:banking-acquirer-core', version.ref = 'tag' }
