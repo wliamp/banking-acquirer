@@ -8,10 +8,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - uses: hamsaqua/action/.github/actions/release-core@main
+      - uses: hamsaqua/action/.github/actions/publish-core@main
         with:
           module: banking-acquirer
           version: ${{ github.sha }}
-          core_pat: ${{ secrets.BANK_AQR_PAT }}
-          app_pat: ${{ secrets.APP_PAT }}
+          in_pat: ${{ secrets.BANK_AQR_PAT }}
+          ex_pat: ${{ secrets.STARTER_PAT }}
     runs-on: ubuntu-latest

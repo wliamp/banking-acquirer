@@ -11,5 +11,5 @@ jobs:
       - uses: hamsaqua/action/.github/actions/develop-core@main
         env:
           GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.CONTRACT_PAT }}
+          GITHUB_TOKEN: ${{ secrets.STARTER_PAT }}
     runs-on: ubuntu-latest
