@@ -3,32 +3,32 @@ import static org.gradle.api.JavaVersion.VERSION_17
 import static org.gradle.jvm.toolchain.JavaLanguageVersion.of
 
 plugins {
-	id 'java'
+    id 'java'
     id 'org.springframework.boot' version '3.5.7'
     id 'io.spring.dependency-management' version '1.1.7'
     id 'jacoco'
 }
 
 java {
-	toolchain {
-		languageVersion = of(25)
-	}
+    toolchain {
+        languageVersion = of(25)
+    }
     sourceCompatibility = VERSION_17
     targetCompatibility = VERSION_17
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
     maven {
-        url = uri("https://maven.pkg.github.com/hamsaqua/sql")
+        url = uri("https://maven.pkg.github.com/hamsaqua/starter")
         credentials {
-            username = getenv("GITHUB_ACTOR") ?: findProperty("bank.aqr.core.actor")
+            username = getenv("GITHUB_ACTOR") ?: findProperty("github.actor")
             password = getenv("GITHUB_TOKEN") ?: findProperty("bank.aqr.core.token")
         }
     }
