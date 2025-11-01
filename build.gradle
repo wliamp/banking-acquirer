@@ -35,16 +35,16 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.starter)
-    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation libs.starter
     implementation 'org.springframework:spring-context'
     implementation 'io.projectreactor:reactor-core'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.data:spring-data-r2dbc'
+    implementation 'io.r2dbc:r2dbc-spi'
+    runtimeOnly 'io.r2dbc:r2dbc-postgres'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'io.projectreactor:reactor-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.withType(Test).configureEach {
