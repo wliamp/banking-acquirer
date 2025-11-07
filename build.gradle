@@ -13,8 +13,8 @@ java {
     toolchain {
         languageVersion = of(25)
     }
-    sourceCompatibility = VERSION_17
     targetCompatibility = VERSION_17
+    sourceCompatibility = VERSION_17
 }
 
 configurations {
@@ -36,22 +36,26 @@ repositories {
 
 dependencies {
     implementation libs.starter
-    implementation 'org.springframework:spring-context'
     implementation 'io.projectreactor:reactor-core'
-    implementation 'org.springframework.data:spring-data-r2dbc'
-    implementation 'io.r2dbc:r2dbc-spi'
-    runtimeOnly 'io.r2dbc:r2dbc-postgres'
+    compileOnly 'org.springframework.data:spring-data-commons'
+    compileOnly 'org.springframework:spring-context'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.springframework:spring-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:postgresql'
 }
 
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
+    javaLauncher.set javaToolchains.launcherFor {
+        languageVersion.set(of(17))
+    }
 }
-
 
 tasks.named('jacocoTestReport', JacocoReport) {
     dependsOn tasks.test
